@@ -14,7 +14,7 @@ Copy the attached `reward.wifi` onto your Asuswrt-Merlin router, give it the exe
 
 ### Run it and forget it.
 
-It uses the `iptables` chain, `FORWARD`, and inserts a rule to the chain to allow WiFi for the specified device, and also registers an `at` job to delete the rule later at the specified time.
+It uses the `iptables` chain, `FORWARD`, and inserts a rule to the chain to allow WiFi for the specified device, and also registers an `at` job to delete the rule later after the specified time.
 
 ### Want to give it more time?
 
