@@ -4,7 +4,7 @@
 
 It depends on `at` command. If `ipkg list_installed` does not list `at`, run `ipkg install at` to install it on root shell.
 
-Copy the attached `reward.wifi` onto your Asus-Merlin router, give it an execute permission, and run it on root shell like:
+Copy the attached `reward.wifi` onto your Asus-Merlin router, give it the execute permission, and run it on root shell like:
 ```
 # ./reward.wifi device-name 60
 ```
@@ -16,6 +16,10 @@ Copy the attached `reward.wifi` onto your Asus-Merlin router, give it an execute
 
 It uses the `iptables` chain, `FORWARD`, and inserts a rule to the chain to allow WiFi for the specified device, and also registers an `at` job to delete the rule later at the specified time.
 
-### Want to give it more time? No problem.
+### Want to give it more time?
 
 During a device is using WiFi, you can run the command again with more time specified and then you will delay the expiration time by that amount of time.
+
+### Further applications.
+
+If you install `ssh` on your smartphone and set it up to run this command, your will be able to run on your smartphone. ^^
