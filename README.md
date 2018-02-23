@@ -8,7 +8,7 @@ Copy the attached `reward.wifi` onto your Asus-Merlin router, give it the execut
 ```
 # ./reward.wifi device-name 60
 ```
-- The `device-name` is the name of a registered device with its mac address on your router. You may already have registered many devices for WiFi filtering or static IP allocation.
+- The `device-name` is the name of a registered device with its mac address on your router. You may already have registered many devices for WiFi mac filtering or static IP allocation.
 
 - The `60` here means the time in minutes for which to allow WiFi, 25 if omitted.
 
