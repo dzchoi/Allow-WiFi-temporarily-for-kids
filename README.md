@@ -1,4 +1,4 @@
-# Allow WiFi temporarily on Asuswrt-Merlin routers
+# Allow WiFi temporarily on Asuswrt-Merlin routers for kids
 
 ### How to use it.
 
