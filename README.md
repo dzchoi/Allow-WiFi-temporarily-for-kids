@@ -6,9 +6,9 @@ It depends on `at` command. If `ipkg list_installed` does not list `at`, run `ip
 
 Copy the attached `reward.wifi` onto your Asus-Merlin router, give it the execute permission, and run it on root shell like:
 ```
-# ./reward.wifi device-name 60
+# ./reward.wifi device_name 60
 ```
-- The `device-name` is the name of a registered device with its mac address on your router. You may already have registered many devices for WiFi mac filtering or static IP allocation.
+- The `device_name` is the name of a registered device with its mac address on your router. You may already have registered many devices for WiFi mac filtering or static IP allocation. You can specify more than one device name using like `"device1|device2"`, which is a regular expression actually.
 
 - The `60` here means the time in minutes for which to allow WiFi, 25 if omitted.
 
