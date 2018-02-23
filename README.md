@@ -4,7 +4,7 @@
 
 It depends on `at` command. If `ipkg list_installed` does not list `at`, run `ipkg install at` to install it on root shell.
 
-Copy the attached `reward.wifi` onto your Asus-Merlin router, give it the execute permission, and run it on root shell like:
+Copy the attached `reward.wifi` onto your Asuswrt-Merlin router, give it the execute permission, and run it on root shell like:
 ```
 # ./reward.wifi device_name 60
 ```
