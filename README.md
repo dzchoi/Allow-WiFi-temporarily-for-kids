@@ -22,4 +22,4 @@ During a device is using WiFi, you can run the command again with more time spec
 
 ### Further applications.
 
-If you install `ssh` on your smartphone and set it up to run this command, your will be able to run on your smartphone. ^^
+If you install `ssh` on your smartphone and set it up to run this command, ... ^^
