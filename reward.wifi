@@ -9,7 +9,7 @@
 if [ "$macs" ]; then
     time=${2-25}  # 25 mins by default unless specified
     function forward {  # Ex. forward I 12:34:56:78:90:AB
-	echo -n "iptables -$1 FORWARD -i br0 -m mac --mac-source $2 -j PControls"
+	echo -n "iptables -$1 FORWARD -i br0 -m mac --mac-source $2 -j ACCEPT"
     }
 
     delayed=0
