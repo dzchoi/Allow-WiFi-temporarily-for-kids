@@ -16,6 +16,8 @@ Copy the attached `reward.wifi` onto your Asuswrt-Merlin router, give it the exe
 
 It uses the `iptables` chain, `FORWARD`, and inserts a rule to the chain to allow WiFi for the specified device, and also registers an `at` job to delete the rule later after the specified time.
 
+It runs separately from the Parental Control web application of the router, but has a priority over that web application. So, even if WiFi is now blocked by the web application, you can allow WiFi (for the specified time).
+
 ### Want to give it more time?
 
 During a device is using WiFi, you can run the command again with more time specified and then you will get the expiration delayed by that amount of time.
