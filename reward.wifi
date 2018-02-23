@@ -1,0 +1,41 @@
+#!/bin/sh
+# Requirement: `ipkg install at`, if `ipkg list_installed` does not list "at".
+# Usage: ./reward.wifi user [40]
+
+[ "$1" ] &&
+    macs=$(nvram get custom_clientlist |sed 's/>>/\n/g' |
+	sed -r "s/($1)[^>]*>([0-9A-F:]+)>.*|./\2/gi;/./!d" | tr '\n' ' ')
+
+if [ "$macs" ]; then
+    time=${2-25}  # 25 mins by default unless specified
+    function forward {  # Ex. forward I 12:34:56:78:90:AB
+	echo -n "iptables -$1 FORWARD -i br0 -m mac --mac-source $2 -j PControls"
+    }
+
+    delayed=0
+    for mac in $macs; do
+	now=""  # should be initialized at each iteration.
+
+	# If there is already a duplicate job that specifies the same "$(forward D 
+	# $mac)", we capture its scheduled time into $now and delete the job.
+	for job in $(atq | cut -f 1); do
+	    if at -c $job | grep -Fqs "$(forward D $mac)"; then
+		now=$(atq | awk "\$1 == $job { print \$3, \$2 }")
+		atrm $job
+	    fi
+	done
+
+	# We can now run like:
+	# `echo iptables -D ... | at 22:30 2018-02-06 +25 min && iptables -I ...`
+	echo "sleep $delayed; $(forward D $mac)" | at ${now:-now} +$time min &&
+	[ -z "$now" ] && eval $(forward I "$mac")
+	    # When many at jobs have the same scheduled time, they may have a conflict in 
+	    # accessing the same iptable chain, leading to a runtime error of `iptables` 
+	    # as well as `atd`. With "delayed" here, however, we set a small delay before 
+	    # starting of each job.
+
+	let delayed++  # Increase it in outer shell.
+    done
+else
+    >&2 echo "User name \"$1\" not found in the clientlist."
+fi
