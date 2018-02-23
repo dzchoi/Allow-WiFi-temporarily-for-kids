@@ -18,7 +18,7 @@ It uses the `iptables` chain, `FORWARD`, and inserts a rule to the chain to allo
 
 ### Want to give it more time?
 
-During a device is using WiFi, you can run the command again with more time specified and then you will delay the expiration time by that amount of time.
+During a device is using WiFi, you can run the command again with more time specified and then you will get the expiration delayed by that amount of time.
 
 ### Further applications.
 
